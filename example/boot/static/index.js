@@ -4,9 +4,9 @@ var boot = require("boot")
     , lazynode = require("../..")
 
 var remote = lazynode.connect({
-        createStream: createStream
-        , methods: ["time"]
-    })
+    createStream: createStream
+    , methods: ["time"]
+})
 
 setInterval(function () {
     remote.time(function (time) {
