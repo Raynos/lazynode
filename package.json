@@ -18,9 +18,14 @@
   },
   "dependencies": {
     "through": "~0.1.4",
-    "upnode": "~0.4.1"
+    "upnode": "~0.4.1",
+    "event-stream": "~2.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "browserify-server": "~0.2.0",
+    "boot": "~0.6.0",
+    "hat": "0.0.3"
+  },
   "licenses": [
     {
       "type": "MIT",

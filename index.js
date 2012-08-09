@@ -1,5 +1,7 @@
 var upnode = require("upnode")
     , through = require("through")
+    , es = require("event-stream")
+    , slice = Array.prototype.slice
 
 lazynode.listen = upnode.listen
 lazynode.connect = lazynodeConnect
@@ -8,13 +10,11 @@ module.exports = lazynode
 
 function lazynode() {
     var client = upnode.apply(null, arguments)
-        , self = through()
+        , read = through()
+        , write = through()
+        , self = es.duplex(write, read)
 
-    client.pipe(self, {
-        end: false
-    }).pipe(client, {
-        end: false
-    })
+    write.pipe(client).pipe(read)
 
     self.connect = connect
     self.listen = client.listen
@@ -27,16 +27,16 @@ function lazynode() {
 
         return methods.reduce(addMethod, {})
 
-        function addMethod(remote, methodName) {
-            remote[methodName] = getUp
-            return remote
+        function addMethod(acc, methodName) {
+            acc[methodName] = getUp
+            return acc
 
             function getUp() {
-                var args = arguments
+                var args = slice.call(arguments)
                 up(callMethod)
 
                 function callMethod(remote) {
-                    remote[methodName].apply(null, args)
+                    remote[methodName].apply(remote, args)
                 }
             }
         }
