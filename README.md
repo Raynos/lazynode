@@ -1,4 +1,4 @@
-# lazynode [![build status][1]][2]
+# lazynode
 
 lazily call an upnode server
 
