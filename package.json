@@ -1,0 +1,31 @@
+{
+  "name": "lazynode",
+  "version": "0.0.1",
+  "description": "lazily call an upnode server",
+  "keywords": [],
+  "author": "Raynos <raynos2@gmail.com>",
+  "repository": "git://github.com/Raynos/lazynode.git",
+  "main": "index",
+  "homepage": "https://github.com/Raynos/lazynode",
+  "contributors": [
+    {
+      "name": "Jake Verbaten"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/Raynos/lazynode/issues",
+    "email": "raynos2@gmail.com"
+  },
+  "dependencies": {
+    "through": "~0.1.4",
+    "upnode": "~0.4.1"
+  },
+  "devDependencies": {},
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/Raynos/lazynode/raw/master/LICENSE"
+    }
+  ],
+  "scripts": {}
+}
